@@ -71,6 +71,10 @@ changed and why, and wait for a yes.
 This is enforced, not trusted: `.claude/hooks/review-before-commit.mjs` intercepts every `git commit`
 and turns it into an approval prompt carrying the staged diff, so a commit cannot be approved blind.
 
+**Attribution.** Work done with an agent carries a `Co-Authored-By` trailer; work done solo does not.
+The distinction is deliberate: it makes the history a readable record of where the collaboration
+actually happened, rather than a blanket claim in either direction.
+
 ## Pull requests
 
 - One branch per unit of value. Conventional Commits.
