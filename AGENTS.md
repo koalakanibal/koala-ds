@@ -53,14 +53,24 @@ Three tiers, and the tier boundary is enforced by tests:
   Every line of the contract becomes a test.
 - Variants and states are expressed as `data-*` attributes, never as combined class names:
   `.root[data-variant="primary"]`, `.root[data-loading]`.
+- After the spec and before writing code, state the intended approach in a few lines and get it
+  corrected. Correcting an approach costs a minute; correcting an implementation costs an hour.
 - Every component ships stories covering all variants, both colour modes, and one second-theme
   story as a canary for leaked primitive references.
+- Every component gets an adversarial pass before its PR: overlong content, absurd props, deep
+  nesting, 200 % zoom, RTL.
 
 ## Accessibility
 
 Non-negotiable: nothing merges with a failing axe check. Automated checks catch roughly a third of
 real problems, so every component also carries a hand-written keyboard matrix in its spec and a
 documented screen-reader pass.
+
+## Testing
+
+Green does not mean good. Tests written by an agent can pass while asserting nothing that matters,
+so tests are reviewed as an artefact in their own right, separately from the implementation they
+cover. At least once per component, break the implementation on purpose and confirm a test goes red.
 
 ## Committing
 
@@ -81,6 +91,10 @@ actually happened, rather than a blanket claim in either direction.
 - Every PR needs a changeset — documentation PRs included.
 - CI must be green: lint, typecheck, tests, axe over all stories, build, Chromatic.
 - Leave a self-review comment noting what you were unsure about and how you resolved it.
+- Every new dependency is justified in one line: why this one, what it weighs, what it pulls in,
+  and whether it ships to consumers or stays in the build.
+- Anything a review surfaces that will recur goes back into this file or into a skill. A review that
+  only fixes one pull request was half wasted.
 - Squash merge, conventional-commit title.
 
 ## Decisions
