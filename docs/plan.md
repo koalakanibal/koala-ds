@@ -325,16 +325,28 @@ them is **when their cost is paid**:
 | Hooks (`.claude/settings.json`) | Whatever **must not depend on anyone remembering** | Nothing, the harness runs it |
 
 **`AGENTS.md` is canonical, `CLAUDE.md` is a pointer.** One source of truth — and in a public repo it
-says something: *this repo is set up for anyone's agent, not just mine*. One screen maximum; anything
-longer belongs in a skill.
+says something: *this repo is set up for anyone's agent, not just mine*. Short enough that every line
+still gets read, and no longer: it is paid in every session. Anything that is procedure rather than
+rule belongs in a skill.
 
-**A rule in `AGENTS.md` is a suggestion; a hook is a guarantee.** Anything that must *always* happen
-belongs in a hook. Two earn their place here:
+**`AGENTS.md` holds the rule; the skill holds the method.** A rule stays in `AGENTS.md` as one
+non-negotiable line — what must happen. How it is done, with all the judgement that needs, goes in
+the skill. So the two grow in opposite directions: **every time a skill lands, `AGENTS.md` gets
+shorter**, because the prose that was standing in for the missing skill becomes a pointer to it.
+Nothing moves out before its skill exists — a rule exiled to a skill nobody has written yet is a rule
+that has simply been deleted.
 
-- `PreToolUse` on `git commit` → turns every commit into an approval prompt carrying the staged diff.
-  Already built, in `.claude/hooks/review-before-commit.mjs`.
+**A rule in `AGENTS.md` is a suggestion; a hook is a guarantee — but only if it fires, and only if it
+shows enough to act on.** One hook earns its place here:
+
 - `PostToolUse` on `Edit|Write` under `packages/ui/**` → runs the tests related to the edited file.
   This turns "TDD" from an intention into a closed loop.
+
+A `PreToolUse` hook on `git commit` was built and then removed. It carried `git diff --staged --stat`
+— file names and line counts — which can be approved as blindly as nothing at all, and it appears
+never to have fired in a session. Commit approval stayed as a rule, carried by showing the full diff
+in the conversation. The lesson generalises past this repo: **an unverified guarantee is worse than an
+honest suggestion**, because it collects trust it has not earned.
 
 **The subagent that actually helps:** an `a11y-reviewer` with a clean context, auditing a component
 without remembering having written it. An agent that just implemented `Tabs` is a poor reviewer of

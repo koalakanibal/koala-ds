@@ -13,11 +13,16 @@ is the real record of when each thing happened.
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | None |
 
-**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 5 / 107 steps
+**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 4 / 107 steps
 
 ---
 
 ## How this works
+
+**Who executes each step.** Every step is offered as a choice: the human runs it or the agent does.
+The agent states the approach, the human approves or corrects it, and whoever does not execute
+verifies. This is a deliberate cost in speed: the point of this project is the process, and a
+process you have only watched an agent perform is not one you have learned.
 
 **Phase kickoff (10 min, conversational).** Every phase opens with a spoken review before touching
 anything: where we actually are, what the previous phase left behind, and what gets cut if time has
@@ -47,7 +52,7 @@ accumulates.
 
 ---
 
-## P0 · Foundations and scaffolding — 5/17 · 12 h
+## P0 · Foundations and scaffolding — 4/16 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -63,11 +68,9 @@ accumulates.
 - [ ] `main` protected + `pull_request_template.md` + `CODEOWNERS`
 - [ ] `0.0.1` versioned with a changeset and published to npm
 - [ ] GitHub Pages live (source: GitHub Actions) serving a placeholder
-- [x] `AGENTS.md` at the root (one screen) + `CLAUDE.md` pointing at it
+- [x] `AGENTS.md` at the root + `CLAUDE.md` pointing at it
 - [ ] `standards` skill — WCAG 2.2 AA · ARIA APG · DTCG · semver. **Links the source** and translates
       it into checkable rules; never paraphrases the spec from memory
-- [x] Hook `review-before-commit` — every `git commit` becomes an approval prompt carrying the
-      staged diff, so nothing is ever committed unreviewed
 - [ ] Hook `PostToolUse` on `packages/ui/**` running the tests for the edited file
 - [ ] ADR `0001-monorepo.md`
 
@@ -109,7 +112,7 @@ accumulates.
 
 ---
 
-## P2 · Button and TextField — 0/18 · 22 h
+## P2 · Button and TextField — 0/19 · 22 h
 
 - [ ] Phase kickoff (10 min)
 
@@ -129,6 +132,8 @@ accumulates.
 - [ ] **Adversarial pass** — overlong content, absurd props, deep nesting, 200 % zoom, RTL
 - [ ] Stories (all variants, both modes, second theme) + changeset + PR merged
 - [ ] `component-tdd` and `a11y-audit` skills created out of this cycle
+- [ ] `AGENTS.md` trimmed as those skills land — each rule whose method moved out becomes a one-line
+      pointer, not a deletion
 - [ ] `ds-conventions` + `ui-craft` skills — token naming, props, component anatomy, the mandatory
       state matrix, motion scale. **Dictated by you**, written fresh for this repo
 
@@ -290,6 +295,22 @@ and not one hour of design. For a design system built by a designer that is back
 pass became a required step in the cycle, and four well-crafted components replaced six correct ones
 for fewer hours.
 
+**2026-08-31** — A named next action ("install the base toolchain") was read as approval of the
+approach, and the agent ran `pnpm add` immediately: seven dependencies in, TypeScript silently
+resolving to 7.0.x, everything reverted → the approach step was generalised from components to the
+whole repo, and who executes each step became an explicit choice.
+
+**2026-08-31** — The `review-before-commit` hook was removed. It promised the staged diff in the
+approval prompt and delivered `--stat`: file names and line counts, which can be approved as blindly
+as nothing at all. It also appears never to have fired in a session → the rule stayed in `AGENTS.md`,
+the mechanism went, and **an unverified guarantee turned out to be worse than an honest suggestion**,
+because it collects trust it has not earned.
+
+**2026-08-31** — Asked where the "`AGENTS.md` must fit one screen" rule came from, and it came from
+nowhere: it was written into the plan two days earlier, on a day the file was already 105 lines long.
+It was never true, not for a minute → the number was replaced by the principle it was standing in
+for, and the lesson is that a plan can manufacture its own norms and then be measured against them.
+
 ---
 
 ## Decisions that changed from the plan
@@ -310,3 +331,6 @@ for fewer hours.
 | 2026-08-28 | 124 h / 7 weeks (stated as 106) | 111 h / 7 weeks + a buffer week | Arithmetic reconciled, and the overrun planned instead of hoped away |
 | 2026-08-28 | Process invented ad hoc | Process aligned to the six Unlearn workflows, 115 h | Eight concrete changes: poke-holes pass, state-the-approach step, test-quality review, dependency justification, adversarial pass, review feedback loop, a home for the debugging workflow, and mockups reframed as gap detectors |
 | 2026-08-28 | "OKLCH ramp generated with culori" as one checkbox | Three explained steps + an ADR written by hand | A finished script handed over teaches nothing. The colour pipeline is the reason the project exists, so it is built to be understood, not just to work |
+| 2026-08-31 | "Human decides, agent propagates" | Human decides, and chooses who executes each step | Watching an agent execute teaches the outcome, not the process. The project exists to learn the process |
+| 2026-08-31 | Hook `review-before-commit` as the guarantee behind commit approval | Hook removed; the rule stands on its own, carried by showing the full diff in the conversation | It showed file names and line counts, not the diff, so it could be approved as blindly as nothing — and it never fired |
+| 2026-08-31 | `AGENTS.md` capped at one screen | Short enough that every line still gets read, and it shrinks as each skill lands | The cap came from nothing and was already false the day it was written. `AGENTS.md` holds the rule, the skill holds the method |
