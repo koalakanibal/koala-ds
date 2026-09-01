@@ -11,7 +11,7 @@ is the real record of when each thing happened.
 | **Hours so far** | 0 / ≈115 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
-| **Open decisions** | None |
+| **Open decisions** | TypeScript 5.9 or 7 · which dependencies beyond the plan's seven · where the ESLint config lives |
 
 **Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 4 / 107 steps
 
@@ -62,7 +62,8 @@ accumulates.
 - [ ] Base toolchain installed (typescript, turbo, vitest, eslint, prettier, changesets)
 - [ ] `pnpm changeset init`
 - [ ] `packages/tokens` with a minimal three-colour JSON
-- [ ] `packages/ui` with Vite in library mode + a trivial component + correct `exports`
+- [ ] `packages/ui` with Vite in library mode + a trivial component + correct `exports`, plus
+      `publishConfig: { "access": "public" }` — scoped packages publish private by default
 - [ ] `.github/workflows/ci.yml` — install · lint · typecheck · test · build
 - [ ] Bundle-size budget in CI — catch weight as it is added, not once it is a problem
 - [ ] `main` protected + `pull_request_template.md` + `CODEOWNERS`
