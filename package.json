@@ -19,6 +19,7 @@
     "release": "turbo build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.1",
     "@vitest/coverage-v8": "^4.1.11",
     "eslint": "^10.9.1",
