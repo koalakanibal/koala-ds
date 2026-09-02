@@ -2,7 +2,7 @@
   "name": "koala-ds",
   "private": true,
   "type": "module",
-  "description": "Koala — un sistema de diseño pequeño y completo",
+  "description": "A small, complete design system: tokens plus four components",
   "license": "MIT",
   "packageManager": "pnpm@10.33.0",
   "engines": {
@@ -17,5 +17,14 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.1",
+    "@vitest/coverage-v8": "^4.1.11",
+    "eslint": "^10.9.1",
+    "prettier": "^3.9.6",
+    "turbo": "^2.10.12",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.11"
   }
 }

@@ -11,7 +11,7 @@ is the real record of when each thing happened.
 | **Hours so far** | 0 / ≈115 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
-| **Open decisions** | TypeScript 5.9 or 7 · which dependencies beyond the plan's seven · where the ESLint config lives |
+| **Open decisions** | which dependencies beyond the plan's seven · where the ESLint config lives |
 
 **Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 5 / 107 steps
 
@@ -273,7 +273,8 @@ component — the best engineering lesson left in the deferred set.
 > Not an optional diary. Every entry here becomes a sentence in the case study (P7 · section 5).
 > Write it **while it is hot**: what broke, what took longer than expected, what changed your mind.
 >
-> Format: `**YYYY-MM-DD** — what happened → what I changed.`
+> Format: `**YYYY-MM-DD** — what happened → what I changed.` Two or three lines. Technical detail
+> belongs in the commit message.
 
 **2026-08-28** — The plan assumed publishing to npm, which was never in the original brief; it was
 inferred rather than decided → registry made an explicit decision with three options and an ADR
@@ -311,6 +312,9 @@ because it collects trust it has not earned.
 nowhere: it was written into the plan two days earlier, on a day the file was already 105 lines long.
 It was never true, not for a minute → the number was replaced by the principle it was standing in
 for, and the lesson is that a plan can manufacture its own norms and then be measured against them.
+
+**2026-09-01** — `vue-tsc` cannot load TypeScript 7, though its dependency range claims it can →
+pinned to `~6.0.3`. A five-minute spike found what would otherwise have surfaced two branches later.
 
 ---
 
