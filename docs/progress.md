@@ -13,7 +13,7 @@ is the real record of when each thing happened.
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | TypeScript 5.9 or 7 · which dependencies beyond the plan's seven · where the ESLint config lives |
 
-**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 4 / 107 steps
+**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 5 / 107 steps
 
 ---
 
@@ -52,7 +52,7 @@ accumulates.
 
 ---
 
-## P0 · Foundations and scaffolding — 4/16 · 12 h
+## P0 · Foundations and scaffolding — 5/16 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -73,7 +73,7 @@ accumulates.
 - [ ] `standards` skill — WCAG 2.2 AA · ARIA APG · DTCG · semver. **Links the source** and translates
       it into checkable rules; never paraphrases the spec from memory
 - [ ] Hook `PostToolUse` on `packages/ui/**` running the tests for the edited file
-- [ ] ADR `0001-monorepo.md`
+- [x] ADR `0001-monorepo.md`
 
 **P0 milestone** — [ ] example PR merged with CI green · [ ] `0.0.1` on npm · [ ] Pages responds
 
