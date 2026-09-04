@@ -157,18 +157,20 @@ the stylesheet, that job fails. Two hours, same signal, one less repo.
 koala-ds/                    ← one public monorepo
 ├─ .changeset/
 ├─ .claude/
-│  ├─ hooks/                 ← review-before-commit, and the test hook
+│  ├─ hooks/                 ← the test hook
 │  └─ skills/                ← skills, versioned
 ├─ .github/workflows/
 ├─ docs/
 │  ├─ plan.md                ← this file
 │  ├─ progress.md            ← the running checklist
 │  └─ decisions/             ← ADRs
+├─ eslint.config.js          ← one config for the whole repo
+├─ tsconfig.base.json        ← what every package extends
+├─ turbo.json
 ├─ packages/
 │  ├─ tokens/                ← DTCG JSON + Style Dictionary
 │  ├─ ui/                    ← Vue 3 + .storybook/
-│  ├─ ui-react/              ← P6, two components
-│  └─ config/                ← shared tsconfig, eslint
+│  └─ ui-react/              ← P6, two components
 └─ apps/
    └─ site/                  ← Astro: the landing AND the docs
 ```

@@ -11,7 +11,7 @@ is the real record of when each thing happened.
 | **Hours so far** | 0 / ≈115 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
-| **Open decisions** | which dependencies beyond the plan's seven · where the ESLint config lives |
+| **Open decisions** | which dependencies the Vue and Vite setup needs in `packages/ui` |
 
 **Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 7 / 107 steps
 
@@ -339,3 +339,4 @@ pinned to `~6.0.3`. A five-minute spike found what would otherwise have surfaced
 | 2026-08-31 | "Human decides, agent propagates" | Human decides, and chooses who executes each step | Watching an agent execute teaches the outcome, not the process. The project exists to learn the process |
 | 2026-08-31 | Hook `review-before-commit` as the guarantee behind commit approval | Hook removed; the rule stands on its own, carried by showing the full diff in the conversation | It showed file names and line counts, not the diff, so it could be approved as blindly as nothing — and it never fired |
 | 2026-08-31 | `AGENTS.md` capped at one screen | Short enough that every line still gets read, and it shrinks as each skill lands | The cap came from nothing and was already false the day it was written. `AGENTS.md` holds the rule, the skill holds the method |
+| 2026-09-01 | `packages/config` for shared tsconfig and eslint | Both live at the repo root; lint runs once for the whole repo instead of per package | One config, no package needing to diverge. A shared-config package waits for the second consumer that actually needs different rules |

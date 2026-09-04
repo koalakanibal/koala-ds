@@ -9,11 +9,11 @@
     "node": ">=22"
   },
   "scripts": {
-    "lint": "turbo lint",
+    "lint": "eslint .",
     "typecheck": "turbo typecheck",
     "test": "turbo test",
     "build": "turbo build",
-    "verify": "turbo lint typecheck test build",
+    "verify": "pnpm lint && turbo typecheck test build",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo build && changeset publish"
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",
     "@changesets/cli": "^3.0.1",
+    "@eslint/js": "^10.0.1",
     "@vitest/coverage-v8": "^4.1.11",
     "eslint": "^10.9.1",
     "prettier": "^3.9.6",
