@@ -7,8 +7,8 @@ is the real record of when each thing happened.
 |---|---|
 | **System** | **Koala** · repo `koalakanibal/koala-ds` · package `@koalakanibal/koala` |
 | **Current phase** | P0 · Foundations and scaffolding |
-| **Next action** | Install the base toolchain (turbo, vitest, eslint, prettier, changesets) |
-| **Hours so far** | 0 / ≈115 |
+| **Next action** | `packages/tokens` with a minimal three-colour JSON |
+| **Started** | 2026-08-28 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | which dependencies the Vue and Vite setup needs in `packages/ui` |
@@ -49,6 +49,11 @@ agent decides, the case study section *"what the AI proposed and what I decided"
 **The second-time rule.** Skills, hooks and subagents are created the *second* time you do a task by
 hand, never the first. Encoding a workflow you have not yet validated is how unused tooling
 accumulates.
+
+**Time is recorded as dates, not hours.** The hour estimates stay in [`plan.md`](./plan.md) as the
+prediction they were. Here, each phase heading gets the date it actually closed. An hour count needs
+a timer running and was never kept; a date needs one moment of attention, and it answers the same
+question — whether the plan was realistic.
 
 ---
 
@@ -340,3 +345,4 @@ pinned to `~6.0.3`. A five-minute spike found what would otherwise have surfaced
 | 2026-08-31 | Hook `review-before-commit` as the guarantee behind commit approval | Hook removed; the rule stands on its own, carried by showing the full diff in the conversation | It showed file names and line counts, not the diff, so it could be approved as blindly as nothing — and it never fired |
 | 2026-08-31 | `AGENTS.md` capped at one screen | Short enough that every line still gets read, and it shrinks as each skill lands | The cap came from nothing and was already false the day it was written. `AGENTS.md` holds the rule, the skill holds the method |
 | 2026-09-01 | `packages/config` for shared tsconfig and eslint | Both live at the repo root; lint runs once for the whole repo instead of per package | One config, no package needing to diverge. A shared-config package waits for the second consumer that actually needs different rules |
+| 2026-09-01 | Progress tracked as hours spent against a 115 h budget | Hours stay in the plan as the estimate; here each phase records the date it closed | The hour count needs a timer running and was never kept. A date needs one moment of attention and answers the same question |
