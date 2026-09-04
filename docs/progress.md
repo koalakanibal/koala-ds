@@ -11,9 +11,9 @@ is the real record of when each thing happened.
 | **Hours so far** | 0 / ≈115 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
-| **Open decisions** | TypeScript 5.9 or 7 · which dependencies beyond the plan's seven · where the ESLint config lives |
+| **Open decisions** | which dependencies the Vue and Vite setup needs in `packages/ui` |
 
-**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 4 / 107 steps
+**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 7 / 107 steps
 
 ---
 
@@ -52,15 +52,15 @@ accumulates.
 
 ---
 
-## P0 · Foundations and scaffolding — 4/16 · 12 h
+## P0 · Foundations and scaffolding — 7/16 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
 - [x] Phase kickoff (10 min)
 - [x] `git init -b main` + `pnpm init` + public repo created on GitHub
 - [x] `pnpm-workspace.yaml` with `packages/*` and `apps/*`
-- [ ] Base toolchain installed (typescript, turbo, vitest, eslint, prettier, changesets)
-- [ ] `pnpm changeset init`
+- [x] Base toolchain installed (typescript, turbo, vitest, eslint, prettier, changesets)
+- [x] `pnpm changeset init`
 - [ ] `packages/tokens` with a minimal three-colour JSON
 - [ ] `packages/ui` with Vite in library mode + a trivial component + correct `exports`, plus
       `publishConfig: { "access": "public" }` — scoped packages publish private by default
@@ -73,7 +73,7 @@ accumulates.
 - [ ] `standards` skill — WCAG 2.2 AA · ARIA APG · DTCG · semver. **Links the source** and translates
       it into checkable rules; never paraphrases the spec from memory
 - [ ] Hook `PostToolUse` on `packages/ui/**` running the tests for the edited file
-- [ ] ADR `0001-monorepo.md`
+- [x] ADR `0001-monorepo.md`
 
 **P0 milestone** — [ ] example PR merged with CI green · [ ] `0.0.1` on npm · [ ] Pages responds
 
@@ -273,7 +273,8 @@ component — the best engineering lesson left in the deferred set.
 > Not an optional diary. Every entry here becomes a sentence in the case study (P7 · section 5).
 > Write it **while it is hot**: what broke, what took longer than expected, what changed your mind.
 >
-> Format: `**YYYY-MM-DD** — what happened → what I changed.`
+> Format: `**YYYY-MM-DD** — what happened → what I changed.` Two or three lines. Technical detail
+> belongs in the commit message.
 
 **2026-08-28** — The plan assumed publishing to npm, which was never in the original brief; it was
 inferred rather than decided → registry made an explicit decision with three options and an ADR
@@ -312,6 +313,9 @@ nowhere: it was written into the plan two days earlier, on a day the file was al
 It was never true, not for a minute → the number was replaced by the principle it was standing in
 for, and the lesson is that a plan can manufacture its own norms and then be measured against them.
 
+**2026-09-01** — `vue-tsc` cannot load TypeScript 7, though its dependency range claims it can →
+pinned to `~6.0.3`. A five-minute spike found what would otherwise have surfaced two branches later.
+
 ---
 
 ## Decisions that changed from the plan
@@ -335,3 +339,4 @@ for, and the lesson is that a plan can manufacture its own norms and then be mea
 | 2026-08-31 | "Human decides, agent propagates" | Human decides, and chooses who executes each step | Watching an agent execute teaches the outcome, not the process. The project exists to learn the process |
 | 2026-08-31 | Hook `review-before-commit` as the guarantee behind commit approval | Hook removed; the rule stands on its own, carried by showing the full diff in the conversation | It showed file names and line counts, not the diff, so it could be approved as blindly as nothing — and it never fired |
 | 2026-08-31 | `AGENTS.md` capped at one screen | Short enough that every line still gets read, and it shrinks as each skill lands | The cap came from nothing and was already false the day it was written. `AGENTS.md` holds the rule, the skill holds the method |
+| 2026-09-01 | `packages/config` for shared tsconfig and eslint | Both live at the repo root; lint runs once for the whole repo instead of per package | One config, no package needing to diverge. A shared-config package waits for the second consumer that actually needs different rules |
