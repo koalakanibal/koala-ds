@@ -7,13 +7,13 @@ is the real record of when each thing happened.
 |---|---|
 | **System** | **Koala** · repo `koalakanibal/koala-ds` · package `@koalakanibal/koala` |
 | **Current phase** | P0 · Foundations and scaffolding |
-| **Next action** | `.github/workflows/ci.yml` — install · lint · typecheck · test · build |
+| **Next action** | make ESLint cover `.ts` and `.vue` |
 | **Started** | 2026-08-28 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | which dependencies the Vue and Vite setup needs in `packages/ui` |
 
-**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 9 / 107 steps
+**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 10 / 108 steps
 
 ---
 
@@ -57,7 +57,7 @@ question — whether the plan was realistic.
 
 ---
 
-## P0 · Foundations and scaffolding — 9/16 · 12 h
+## P0 · Foundations and scaffolding — 10/17 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -69,7 +69,8 @@ question — whether the plan was realistic.
 - [x] `packages/tokens` with a minimal three-colour JSON
 - [x] `packages/ui` with Vite in library mode + a trivial component + correct `exports`, plus
       `publishConfig: { "access": "public" }` — scoped packages publish private by default
-- [ ] `.github/workflows/ci.yml` — install · lint · typecheck · test · build
+- [x] `.github/workflows/ci.yml` — install · lint · typecheck · test · build
+- [ ] ESLint covers `.ts` and `.vue` — today it lints only its own config
 - [ ] Bundle-size budget in CI — catch weight as it is added, not once it is a problem
 - [ ] `main` protected + `pull_request_template.md` + `CODEOWNERS`
 - [ ] `0.0.1` versioned with a changeset and published to npm
@@ -324,6 +325,10 @@ pinned to `~6.0.3`. A five-minute spike found what would otherwise have surfaced
 **2026-09-07** — The minifier rewrites the `@layer` declaration in the built stylesheet, splitting it
 around the component block. The order survives, but by the minifier's good behaviour and nothing
 else → a test over the built CSS belongs in P1; a broken layer order fails silently.
+
+**2026-09-07** — CI was about to go green with a lint step that inspected one file: its own config.
+ESLint's defaults never pick up `.ts` or `.vue` → shipped anyway, with the gap tracked as its own
+step. Fourth declared check this project has found checking nothing.
 
 ---
 
