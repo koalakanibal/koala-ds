@@ -1,0 +1,9 @@
+/* Temporary, with the component. Token consumption and data-* states arrive
+   with Button in P2, where they are real. */
+@layer koala.components {
+  .root {
+    border: 1px dashed;
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+  }
+}
