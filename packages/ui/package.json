@@ -1,0 +1,32 @@
+{
+  "name": "@koalakanibal/koala",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "A small, complete design system: tokens plus four components",
+  "license": "MIT",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "sideEffects": ["**/*.css"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.8",
+    "vite": "^8.2.2",
+    "vue": "^3.5.42",
+    "vue-tsc": "^3.3.11"
+  },
+  "scripts": {
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist",
+    "typecheck": "vue-tsc --noEmit"
+  }
+}

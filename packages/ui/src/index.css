@@ -1,0 +1,4 @@
+/* The layer order is declared here and nowhere else. Layers take their
+   priority from where they are first declared, so this must be the first
+   thing in the bundled stylesheet. */
+@layer koala.reset, koala.tokens, koala.components, koala.overrides;
