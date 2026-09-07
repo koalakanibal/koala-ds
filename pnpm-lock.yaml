@@ -36,6 +36,8 @@ importers:
         specifier: ^4.1.11
         version: 4.1.11(@vitest/coverage-v8@4.1.11)(vite@8.2.2(yaml@2.9.0))
 
+  packages/tokens: {}
+
 packages:
 
   '@babel/helper-string-parser@7.29.7':
