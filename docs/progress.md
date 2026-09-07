@@ -7,13 +7,13 @@ is the real record of when each thing happened.
 |---|---|
 | **System** | **Koala** · repo `koalakanibal/koala-ds` · package `@koalakanibal/koala` |
 | **Current phase** | P0 · Foundations and scaffolding |
-| **Next action** | `packages/tokens` with a minimal three-colour JSON |
+| **Next action** | `packages/ui` with Vite in library mode + a trivial component |
 | **Started** | 2026-08-28 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | which dependencies the Vue and Vite setup needs in `packages/ui` |
 
-**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 7 / 107 steps
+**Overall progress:** `█░░░░░░░░░░░░░░░░░░░` 8 / 107 steps
 
 ---
 
@@ -57,7 +57,7 @@ question — whether the plan was realistic.
 
 ---
 
-## P0 · Foundations and scaffolding — 7/16 · 12 h
+## P0 · Foundations and scaffolding — 8/16 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -66,7 +66,7 @@ question — whether the plan was realistic.
 - [x] `pnpm-workspace.yaml` with `packages/*` and `apps/*`
 - [x] Base toolchain installed (typescript, turbo, vitest, eslint, prettier, changesets)
 - [x] `pnpm changeset init`
-- [ ] `packages/tokens` with a minimal three-colour JSON
+- [x] `packages/tokens` with a minimal three-colour JSON
 - [ ] `packages/ui` with Vite in library mode + a trivial component + correct `exports`, plus
       `publishConfig: { "access": "public" }` — scoped packages publish private by default
 - [ ] `.github/workflows/ci.yml` — install · lint · typecheck · test · build

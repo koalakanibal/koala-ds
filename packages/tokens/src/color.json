@@ -1,0 +1,19 @@
+{
+  "neutral": {
+    "0": {
+      "$value": "oklch(100% 0 0)",
+      "$type": "color",
+      "$description": "Placeholder. The real ramp is generated in P1."
+    },
+    "500": {
+      "$value": "oklch(50% 0 0)",
+      "$type": "color",
+      "$description": "Placeholder. The real ramp is generated in P1."
+    },
+    "1000": {
+      "$value": "oklch(0% 0 0)",
+      "$type": "color",
+      "$description": "Placeholder. The real ramp is generated in P1."
+    }
+  }
+}
