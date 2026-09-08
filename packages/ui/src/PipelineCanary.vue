@@ -3,7 +3,7 @@
  * Temporary. Exists only so the pipeline has something to build and publish.
  * Delete it when Button lands in P2.
  */
-import styles from './Canary.module.css'
+import styles from './PipelineCanary.module.css'
 </script>
 
 <template>
