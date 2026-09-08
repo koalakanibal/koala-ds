@@ -13,7 +13,7 @@
     "typecheck": "turbo typecheck",
     "test": "turbo test",
     "build": "turbo build",
-    "verify": "pnpm lint && turbo typecheck test build",
+    "verify": "pnpm lint && turbo typecheck test build && node scripts/size-budget.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo build && changeset publish"
