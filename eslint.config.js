@@ -9,5 +9,9 @@ export default defineConfigWithVueTs(
     js.configs.recommended,
     pluginVue.configs['flat/recommended'],
     vueTsConfigs.recommended,
+    {
+        files: ['scripts/**/*.mjs'],
+        languageOptions: { globals: { console: 'readonly', process: 'readonly' } },
+    },
     prettier,
 )

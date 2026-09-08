@@ -7,13 +7,13 @@ is the real record of when each thing happened.
 |---|---|
 | **System** | **Koala** · repo `koalakanibal/koala-ds` · package `@koalakanibal/koala` |
 | **Current phase** | P0 · Foundations and scaffolding |
-| **Next action** | bundle-size budget in CI |
+| **Next action** | protect `main` + `pull_request_template.md` + `CODEOWNERS` |
 | **Started** | 2026-08-28 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | component naming — prefixed (`KoalaButton`) or short with the HTML-collision rule scoped off. Settled in P2 with an ADR |
 
-**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 11 / 108 steps
+**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 12 / 108 steps
 
 ---
 
@@ -57,7 +57,7 @@ question — whether the plan was realistic.
 
 ---
 
-## P0 · Foundations and scaffolding — 11/17 · 12 h
+## P0 · Foundations and scaffolding — 12/17 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -71,7 +71,7 @@ question — whether the plan was realistic.
       `publishConfig: { "access": "public" }` — scoped packages publish private by default
 - [x] `.github/workflows/ci.yml` — install · lint · typecheck · test · build
 - [x] ESLint covers `.ts` and `.vue` — today it lints only its own config
-- [ ] Bundle-size budget in CI — catch weight as it is added, not once it is a problem
+- [x] Bundle-size budget in CI — catch weight as it is added, not once it is a problem
 - [ ] `main` protected + `pull_request_template.md` + `CODEOWNERS`
 - [ ] `0.0.1` versioned with a changeset and published to npm
 - [ ] GitHub Pages live (source: GitHub Actions) serving a placeholder
