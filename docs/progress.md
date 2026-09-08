@@ -7,13 +7,13 @@ is the real record of when each thing happened.
 |---|---|
 | **System** | **Koala** · repo `koalakanibal/koala-ds` · package `@koalakanibal/koala` |
 | **Current phase** | P0 · Foundations and scaffolding |
-| **Next action** | make ESLint cover `.ts` and `.vue` |
+| **Next action** | bundle-size budget in CI |
 | **Started** | 2026-08-28 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
-| **Open decisions** | which dependencies the Vue and Vite setup needs in `packages/ui` |
+| **Open decisions** | component naming — prefixed (`KoalaButton`) or short with the HTML-collision rule scoped off. Settled in P2 with an ADR |
 
-**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 10 / 108 steps
+**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 11 / 108 steps
 
 ---
 
@@ -57,7 +57,7 @@ question — whether the plan was realistic.
 
 ---
 
-## P0 · Foundations and scaffolding — 10/17 · 12 h
+## P0 · Foundations and scaffolding — 11/17 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -70,7 +70,7 @@ question — whether the plan was realistic.
 - [x] `packages/ui` with Vite in library mode + a trivial component + correct `exports`, plus
       `publishConfig: { "access": "public" }` — scoped packages publish private by default
 - [x] `.github/workflows/ci.yml` — install · lint · typecheck · test · build
-- [ ] ESLint covers `.ts` and `.vue` — today it lints only its own config
+- [x] ESLint covers `.ts` and `.vue` — today it lints only its own config
 - [ ] Bundle-size budget in CI — catch weight as it is added, not once it is a problem
 - [ ] `main` protected + `pull_request_template.md` + `CODEOWNERS`
 - [ ] `0.0.1` versioned with a changeset and published to npm
@@ -81,7 +81,7 @@ question — whether the plan was realistic.
 - [ ] Hook `PostToolUse` on `packages/ui/**` running the tests for the edited file
 - [x] ADR `0001-monorepo.md`
 
-**P0 milestone** — [ ] example PR merged with CI green · [ ] `0.0.1` on npm · [ ] Pages responds
+**P0 milestone** — [x] example PR merged with CI green · [ ] `0.0.1` on npm · [ ] Pages responds
 
 ---
 
@@ -329,6 +329,15 @@ else → a test over the built CSS belongs in P1; a broken layer order fails sil
 **2026-09-07** — CI was about to go green with a lint step that inspected one file: its own config.
 ESLint's defaults never pick up `.ts` or `.vue` → shipped anyway, with the gap tracked as its own
 step. Fourth declared check this project has found checking nothing.
+
+**2026-09-07** — The first lint run that actually read the code failed at once on
+`vue/multi-word-component-names`: single-word components share HTML's namespace, and the spec
+reserves hyphen-free names for the platform → canary renamed; the real decision, for `Button`,
+`Card` and `Tabs`, gets an ADR in P2.
+
+**2026-09-07** — Biome was raised as a way to replace the four ESLint packages with one tool. Its Vue
+support is experimental behind a flag and it has no path to `eslint-plugin-vue`'s template and a11y
+rules → stayed on ESLint; worth revisiting when Vue support leaves experimental.
 
 ---
 
