@@ -7,13 +7,13 @@ is the real record of when each thing happened.
 |---|---|
 | **System** | **Koala** · repo `koalakanibal/koala-ds` · package `@koalakanibal/koala` |
 | **Current phase** | P0 · Foundations and scaffolding |
-| **Next action** | protect `main` + `pull_request_template.md` + `CODEOWNERS` |
+| **Next action** | publish `0.0.1` to npm |
 | **Started** | 2026-08-28 |
 | **Latest version** | — |
 | **Components** | Button · TextField · Tabs · Card *(Dialog if week 8 has room)* |
 | **Open decisions** | component naming — prefixed (`KoalaButton`) or short with the HTML-collision rule scoped off. Settled in P2 with an ADR |
 
-**Overall progress:** `██░░░░░░░░░░░░░░░░░░` 12 / 108 steps
+**Overall progress:** `███░░░░░░░░░░░░░░░░░` 13 / 108 steps
 
 ---
 
@@ -57,7 +57,7 @@ question — whether the plan was realistic.
 
 ---
 
-## P0 · Foundations and scaffolding — 12/17 · 12 h
+## P0 · Foundations and scaffolding — 13/17 · 12 h
 
 > Goal: `0.0.1` on npm, CI green and Pages live **before** a single component is written.
 
@@ -72,7 +72,7 @@ question — whether the plan was realistic.
 - [x] `.github/workflows/ci.yml` — install · lint · typecheck · test · build
 - [x] ESLint covers `.ts` and `.vue` — today it lints only its own config
 - [x] Bundle-size budget in CI — catch weight as it is added, not once it is a problem
-- [ ] `main` protected + `pull_request_template.md` + `CODEOWNERS`
+- [x] `main` protected + `pull_request_template.md` + `CODEOWNERS`
 - [ ] `0.0.1` versioned with a changeset and published to npm
 - [ ] GitHub Pages live (source: GitHub Actions) serving a placeholder
 - [x] `AGENTS.md` at the root + `CLAUDE.md` pointing at it
